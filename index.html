@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="./assets/lib/revealjs/dist/reset.css">
 <link rel="stylesheet" href="./assets/lib/revealjs/dist/reveal.css">
 <!-- Custom theme -->
-<link rel="stylesheet" href="./assets/css/theme.css?v=5">
+<link rel="stylesheet" href="./assets/css/theme.css?v=6">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,11 @@
 
 </head>
 <body>
+
+<!-- Glow orbs -->
+<div class="glow-orb"></div>
+<div class="glow-orb"></div>
+<div class="glow-orb"></div>
 
 <!-- Particles backdrop (always present, behind slides) -->
 <div id="tsparticles"></div>
@@ -76,23 +81,21 @@
     <section data-slide="founding">
       <div class="backdrop"></div>
       <h2>1919 · Barcelona · A Pharmacy Yogurt</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2em;margin-top:1em">
-        <div>
-          <div class="founding-step glass" style="margin-bottom:1em">
+      <div style="position:relative;margin-top:1em">
+        <div style="font-size:14em;line-height:1;position:absolute;right:0;bottom:0;opacity:0.06;background:linear-gradient(135deg,#fff,#00bfff);-webkit-background-clip:text;background-clip:text;color:transparent;pointer-events:none;user-select:none;z-index:0">1919</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5em;position:relative;z-index:1">
+          <div class="founding-step glass" style="min-height:160px">
             <h3 style="margin:0 0 0.3em">Isaac Carasso</h3>
             <p style="font-size:0.7em">A Thessaloniki-born physician moves to Barcelona, inspired by Mechnikov's research on lactic-acid bacteria at the Institut Pasteur. <span class="cite-badge">[1][2]</span></p>
           </div>
-          <div class="founding-step glass" style="margin-bottom:1em">
+          <div class="founding-step glass" style="min-height:160px">
             <h3 style="margin:0 0 0.3em">"Little Daniel"</h3>
             <p style="font-size:0.7em">The brand name <i>Danone</i> is a Catalan diminutive of his son Daniel's name. Yogurt is sold through pharmacies as a medicinal product. <span class="cite-badge">[1][2]</span></p>
           </div>
-          <div class="founding-step glass">
+          <div class="founding-step glass" style="min-height:160px">
             <h3 style="margin:0 0 0.3em">From Pharmacy to Planet</h3>
             <p style="font-size:0.7em">A century later, Danone is in 120+ countries and the world's largest B Corp food company. <span class="cite-badge">[8][9]</span></p>
           </div>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:center">
-          <div style="font-size:14em;line-height:1;background:linear-gradient(135deg,#fff,#00bfff);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center">1919</div>
         </div>
       </div>
       <aside class="notes">
@@ -253,16 +256,9 @@
         </div>
       </div>
       <h3 style="margin-top:1.5em;font-size:1em;color:white">Brand Portfolio in Egypt</h3>
-      <div class="brand-strip" style="margin-top:0.6em">
-        <span class="brand-pill">Activia</span>
-        <span class="brand-pill">Activia Rayeb</span>
-        <span class="brand-pill">Danio</span>
-        <span class="brand-pill">Danonino</span>
-        <span class="brand-pill">Danette</span>
-        <span class="brand-pill">Dango</span>
-        <span class="brand-pill">HiPro</span>
-        <span class="brand-pill">Aptamil</span>
-        <span class="brand-pill">Bebelac</span>
+      <div class="brand-groups">
+        <div class="brand-group-row"><div class="brand-group-label">Yogurt &amp; Dairy Desserts</div><div class="brand-strip"><span class="brand-pill">Activia</span><span class="brand-pill">Activia Rayeb</span><span class="brand-pill">Danio</span><span class="brand-pill">Danette</span><span class="brand-pill">Dango</span></div></div>
+        <div class="brand-group-row"><div class="brand-group-label">Kids &amp; Nutrition</div><div class="brand-strip"><span class="brand-pill">Danonino</span><span class="brand-pill">HiPro</span><span class="brand-pill">Aptamil</span><span class="brand-pill">Bebelac</span></div></div>
       </div>
       <aside class="notes">
         Danone entered Egypt in 2006 by buying the Obour plant. Important correction to a common misconception:
@@ -299,7 +295,7 @@
           <div style="margin-top:0.4em"><span class="cite-badge">[25]</span></div>
         </div>
       </div>
-      <p style="margin-top:1.5em;font-size:0.7em;color:#8b95a8">Per-capita far below European or Gulf benchmarks → <b style="color:#00bfff">structural growth headroom</b>. Regulator: National Food Safety Authority (NFSA, est. 2017). Egypt is a structural net importer of milk powder. <span class="cite-badge">[26][27]</span></p>
+      <p class="emphasis-text" style="margin-top:1.5em">Per-capita far below European or Gulf benchmarks → <b>structural growth headroom</b>. Regulator: National Food Safety Authority (NFSA, est. 2017). Egypt is a structural net importer of milk powder.</p>
       <aside class="notes">
         2.59 billion dollar market growing at 2.3%. Per-capita milk consumption is 22 kilos a year — that's
         less than half of Europe. There's room. But Egypt imports its milk powder, which means everyone in
@@ -354,7 +350,8 @@
     <section data-slide="comp">
       <div class="backdrop"></div>
       <h2>Competitive Landscape · Egypt</h2>
-      <div class="comp-bars" style="margin-top:1em"></div>
+      <div class="chart-label">Yogurt &amp; Dairy Market Share (Indexed to Juhayna = 100)</div>
+      <div class="comp-bars" style="margin-top:0.4em"></div>
       <div style="margin-top:1.2em;display:grid;grid-template-columns:1fr 1fr;gap:1em">
         <div class="glass">
           <h3 style="margin:0 0 0.3em;font-size:1em;color:white">Surprise: Beyti</h3>
@@ -474,7 +471,7 @@
       <div class="backdrop"></div>
       <h2>Targeting Strategy · Differentiated + Niche overlay</h2>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1em;margin-top:1em">
-        <div class="tg-card glass">
+        <div class="tg-card glass subdued">
           <div style="color:#8b95a8;font-size:0.55em">UNDIFFERENTIATED</div>
           <h3 style="margin:0.2em 0">Mass</h3>
           <p style="font-size:0.6em">One offer for the whole market. Examples: water, biscuits. <b>Not Danone's strategy.</b></p>
@@ -489,7 +486,7 @@
           <h3 style="margin:0.2em 0">"شريحة صغيرة"</h3>
           <p style="font-size:0.6em">Aptamil / Bebelac — premium, health-led, paediatrician-channel. <b>Niche overlay within differentiated.</b></p>
         </div>
-        <div class="tg-card glass">
+        <div class="tg-card glass subdued">
           <div style="color:#8b95a8;font-size:0.55em">MICROMARKETING</div>
           <h3 style="margin:0.2em 0">Local / Individual</h3>
           <p style="font-size:0.6em">Tailor to specific cities or individuals. Not currently a Danone Egypt strategy.</p>
@@ -661,27 +658,27 @@
       <h2>Promotion · The 5 Tools (lecture frame)</h2>
       <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.8em;margin-top:1em">
         <div class="founding-step glass" style="text-align:center">
-          <div style="font-size:2em">📺</div>
+          <div class="promo-icon-wrap"><div class="promo-icon"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="22" rx="3" stroke="#00bfff" stroke-width="2" fill="none"/><line x1="24" y1="32" x2="24" y2="38" stroke="#00bfff" stroke-width="2"/><line x1="16" y1="38" x2="32" y2="38" stroke="#00bfff" stroke-width="2"/><rect x="10" y="14" width="28" height="14" rx="1" fill="#00bfff" opacity="0.12"/></svg></div></div>
           <h3 style="margin:0.2em 0;font-size:0.85em">Advertising</h3>
           <p style="font-size:0.55em">TV · outdoor · digital. Activia & Danio brand-building.</p>
         </div>
         <div class="founding-step glass" style="text-align:center">
-          <div style="font-size:2em">🏷️</div>
+          <div class="promo-icon-wrap"><div class="promo-icon"><svg viewBox="0 0 48 48"><path d="M10 8 L32 8 L40 16 L32 24 L10 24 Z" fill="none" stroke="#00bfff" stroke-width="2"/><circle cx="18" cy="16" r="3" fill="#00bfff" opacity="0.3"/><line x1="23" y1="13" x2="29" y2="19" stroke="#00bfff" stroke-width="1.5"/></svg></div></div>
           <h3 style="margin:0.2em 0;font-size:0.85em">Sales Promo</h3>
           <p style="font-size:0.55em">In-store multi-pack pricing · sampling · Carrefour cycles.</p>
         </div>
         <div class="founding-step glass" style="text-align:center">
-          <div style="font-size:2em">🌍</div>
+          <div class="promo-icon-wrap"><div class="promo-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="#00bfff" stroke-width="2"/><ellipse cx="24" cy="24" rx="8" ry="16" fill="none" stroke="#00bfff" stroke-width="1.5"/><line x1="8" y1="24" x2="40" y2="24" stroke="#00bfff" stroke-width="1.5"/><line x1="24" y1="8" x2="24" y2="40" stroke="#00bfff" stroke-width="1.5"/></svg></div></div>
           <h3 style="margin:0.2em 0;font-size:0.85em">PR</h3>
           <p style="font-size:0.55em">Gawda + Omda rural programmes · global B Corp story. <span class="cite-badge">[23][24]</span></p>
         </div>
         <div class="founding-step glass" style="text-align:center">
-          <div style="font-size:2em">👥</div>
+          <div class="promo-icon-wrap"><div class="promo-icon"><svg viewBox="0 0 48 48"><circle cx="16" cy="16" r="6" fill="none" stroke="#00bfff" stroke-width="2"/><path d="M6 36 Q6 26 16 26 Q26 26 26 36" fill="none" stroke="#00bfff" stroke-width="2"/><circle cx="35" cy="14" r="5" fill="none" stroke="#00bfff" stroke-width="1.5"/><path d="M27 36 Q27 28 35 28 Q43 28 43 36" fill="none" stroke="#00bfff" stroke-width="1.5"/></svg></div></div>
           <h3 style="margin:0.2em 0;font-size:0.85em">Personal Selling</h3>
           <p style="font-size:0.55em">Aptamil/Bebelac medical-detailing to paediatricians and pharmacies.</p>
         </div>
         <div class="founding-step glass" style="text-align:center">
-          <div style="font-size:2em">📱</div>
+          <div class="promo-icon-wrap"><div class="promo-icon"><svg viewBox="0 0 48 48"><rect x="14" y="4" width="20" height="40" rx="4" fill="none" stroke="#00bfff" stroke-width="2"/><circle cx="24" cy="36" r="2" fill="#00bfff" opacity="0.5"/><line x1="24" y1="10" x2="24" y2="14" stroke="#00bfff" stroke-width="2"/></svg></div></div>
           <h3 style="margin:0.2em 0;font-size:0.85em">Direct</h3>
           <p style="font-size:0.55em">Digital + q-commerce push notifications · subscription nudges.</p>
         </div>
@@ -725,9 +722,9 @@
         <div class="problem-num"></div>
         <h2 class="problem-title"></h2>
       </div>
-      <div class="problem-stage">
-        <div class="problem-card diag"><div class="tag">Diagnosis</div><div class="body"></div></div>
+      <div class="problem-stage problem-swap">
         <div class="problem-card sol"><div class="tag">Proposed Solution</div><div class="body"></div></div>
+        <div class="problem-card diag"><div class="tag">Diagnosis</div><div class="body"></div></div>
       </div>
       <aside class="notes">Problem 2: compete asymmetrically. Don't try to out-distribute Juhayna everywhere — pick where to fight.</aside>
     </section>
@@ -738,7 +735,7 @@
         <div class="problem-num"></div>
         <h2 class="problem-title"></h2>
       </div>
-      <div class="problem-stage">
+      <div class="problem-stage problem-stack">
         <div class="problem-card diag"><div class="tag">Diagnosis</div><div class="body"></div></div>
         <div class="problem-card sol"><div class="tag">Proposed Solution</div><div class="body"></div></div>
       </div>
@@ -751,7 +748,7 @@
         <div class="problem-num"></div>
         <h2 class="problem-title"></h2>
       </div>
-      <div class="problem-stage">
+      <div class="problem-stage problem-stack">
         <div class="problem-card diag"><div class="tag">Diagnosis</div><div class="body"></div></div>
         <div class="problem-card sol"><div class="tag">Proposed Solution</div><div class="body"></div></div>
       </div>
@@ -807,7 +804,7 @@
     <!-- ================================================== -->
     <section data-slide="refs">
       <div class="backdrop"></div>
-      <h2>References · 40 Sources</h2>
+      <h2>References · 38 Sources</h2>
       <p style="font-size:0.6em;color:#8b95a8">Every <span class="cite-badge">[n]</span> in this deck resolves below. Full URLs in the research document (Danone_Marketing_Research.docx).</p>
       <div class="refs"></div>
     </section>
@@ -832,6 +829,9 @@
   </div>
 </div>
 
+<!-- Progress bar -->
+<div id="progress-bar"><span></span></div>
+
 <!-- Vendored libraries (offline-ready) -->
 <script src="./assets/lib/revealjs/dist/reveal.js"></script>
 <script src="./assets/lib/revealjs/plugin/notes/notes.js"></script>
@@ -840,8 +840,8 @@
 <script src="./assets/lib/tsparticles/tsparticles.bundle.min.js"></script>
 
 <!-- Our data + slide logic -->
-<script src="./assets/js/data.js?v=5"></script>
-<script src="./assets/js/slides.js?v=5"></script>
+<script src="./assets/js/data.js?v=6"></script>
+<script src="./assets/js/slides.js?v=6"></script>
 
 </body>
 </html>
