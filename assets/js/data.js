@@ -16,14 +16,12 @@ window.D = {
   ],
 
   renewTimeline: [
-    { year: "2022", title: "Renew Danone launched", desc: "Saint-Affrique unveils mid-single-digit LFL ambition", cite: "[4][6]" },
-    { year: "2023", title: "Russia EDP exit", desc: "Deconsolidation; ~€1.2B accounting loss", cite: "[10][11][12]" },
-    { year: "2024", title: "+4.3% LFL growth", desc: "Margin +39bps; FCF €3.0B", cite: "[3][5]" },
-    { year: "2024", title: "Russia sale closed", desc: "Sold EDP Russia to Vamin R LLC, May 2024", cite: "[11]" },
-    { year: "2025", title: "Akkermansia + Kate Farms", desc: "Microbiome + plant-based medical nutrition", cite: "[6]" },
-    { year: "2025", title: "Three-region restructure", desc: "EMEA / APAC / Americas", cite: "[6]" },
-    { year: "2025", title: "Largest B Corp food co.", desc: "First major food multinational, 200+ entities", cite: "[8][9]" },
-    { year: "2026", title: "+4.5% LFL FY-2025", desc: "Another year of strong delivery", cite: "[6]" },
+    { year: "1919", title: "Founded in Barcelona", desc: "Isaac Carasso sells yogurt in pharmacies as a medicinal product", cite: "[1][2]" },
+    { year: "1929", title: "Moved to Paris", desc: "Carasso opens the first French Danone plant — international expansion begins", cite: "[1][2]" },
+    { year: "1972", title: "Purpose Statement", desc: "Antoine Riboud: 'Bringing health through food to as many people as possible'", cite: "[14]" },
+    { year: "2006", title: "Egypt Entry", desc: "Acquires Obour plant east of Cairo — 40,000 m² · 8-9 production lines", cite: "[16][17][18]" },
+    { year: "2007", title: "Numico Acquisition", desc: "€12.3B deal brings Aptamil, Nutricia, and Bebelac into the portfolio", cite: "[1]" },
+    { year: "2021", title: "Antoine de Saint-Affrique", desc: "New CEO · launches Renew Danone in March 2022 · world's largest B Corp (2025)", cite: "[4][6]" },
   ],
 
   egyptCities: [

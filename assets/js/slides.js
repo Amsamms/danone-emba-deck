@@ -42,6 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!slide) return;
     const id = slide.dataset.slide;
     if (!id) return;
+
+    // Universal entrance animation: stagger in direct children of the slide
+    gsap.set(slide.children, { clearProps: "all" });
+    gsap.fromTo(slide.children,
+      { opacity: 0, y: 24 },
+      { opacity: 1, y: 0, duration: 0.55, stagger: 0.04, ease: "power2.out", delay: 0.1 }
+    );
+
+    // Update progress bar
+    const deck = window.__deck;
+    if (deck) {
+      const pbar = document.querySelector("#progress-bar span");
+      if (pbar) {
+        const idx = deck.getIndices();
+        const total = deck.getTotalSlides();
+        pbar.style.width = ((idx.h + 1) / total * 100) + "%";
+      }
+    }
+
     const fn = window["init_" + id];
     if (typeof fn === "function") {
       try { fn(slide); } catch (e) { console.error("Slide init error:", id, e); }
@@ -71,16 +90,24 @@ function initParticles() {
   tsParticles.load({
     id: "tsparticles",
     options: {
-      fullScreen: { enable: false },
+      fullScreen: { enable: false, zIndex: 0 },
       background: { color: "transparent" },
       fpsLimit: 60,
       particles: {
-        number: { value: 70, density: { enable: true, area: 1000 } },
-        color: { value: ["#00bfff", "#003da5", "#ffffff"] },
-        opacity: { value: { min: 0.05, max: 0.45 } },
-        size: { value: { min: 1, max: 3 } },
-        move: { enable: true, speed: 0.6, direction: "none", outModes: "out", random: true },
-        links: { enable: true, distance: 130, color: "#00bfff", opacity: 0.18, width: 1 },
+        number: { value: 100, density: { enable: true, area: 800 } },
+        color: { value: ["#00bfff", "#003da5", "#ffffff", "#2ecc71"] },
+        opacity: { value: { min: 0.06, max: 0.5 } },
+        size: { value: { min: 1, max: 4 } },
+        move: {
+          enable: true, speed: 0.5, direction: "none",
+          outModes: "out", random: true, bounce: false,
+          attract: { enable: true, rotateX: 600, rotateY: 1200 }
+        },
+        links: {
+          enable: true, distance: 140, color: "#00bfff",
+          opacity: 0.15, width: 1, triangles: { enable: true, opacity: 0.04 }
+        },
+        twinkle: { particles: { enable: true, frequency: 0.05, opacity: 0.6 } },
       },
       interactivity: { events: { onHover: { enable: false }, onClick: { enable: false } } },
       detectRetina: true,
@@ -249,7 +276,7 @@ window.init_market = (slide) => {
 };
 
 // =============== SLIDE: egypt-map ===============
-window.init_egyptMap = async (slide) => {
+window.init_egyptMap = (slide) => {
   if (slide.dataset.inited) return; slide.dataset.inited = 1;
   const stage = slide.querySelector(".egypt-stage");
   const svg = d3.select("#egypt-svg");
@@ -257,7 +284,7 @@ window.init_egyptMap = async (slide) => {
   const w = stage.clientWidth, h = stage.clientHeight;
   svg.attr("viewBox", `0 0 ${w} ${h}`);
 
-  const data = await d3.json("./assets/data/egypt.geojson");
+  const data = D.egyptGeoJSON;
   const projection = d3.geoMercator().fitSize([w, h], data);
   const path = d3.geoPath().projection(projection);
 

@@ -168,7 +168,7 @@ html, body { background: var(--d-navy); }
   border: 1px solid rgba(0,189,255,0.4);
   border-radius: 999px;
   padding: 0.5em 1.2em;
-  font-size: 0.7em;
+  font-size: 0.85em;
   color: var(--d-white);
 }
 
@@ -432,9 +432,94 @@ html, body { background: var(--d-navy); }
   color: white; box-shadow: 0 4px 14px rgba(0,61,165,0.3);
 }
 
-/* Shake / pulse helpers */
+/* Progress bar */
+#progress-bar {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 100;
+  background: rgba(255,255,255,0.05);
+}
+#progress-bar span {
+  display: block; height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--d-cyan), var(--d-blue), var(--d-cyan));
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+  transition: width 0.5s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Floating glow orbs */
+.glow-orb {
+  position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
+  filter: blur(60px); opacity: 0.15;
+  animation: floatOrb 8s ease-in-out infinite alternate;
+}
+.glow-orb:nth-child(1) {
+  width: 300px; height: 300px; background: var(--d-cyan);
+  top: 10%; left: -5%;
+}
+.glow-orb:nth-child(2) {
+  width: 400px; height: 400px; background: var(--d-blue);
+  bottom: 5%; right: -8%;
+  animation-delay: -3s;
+}
+.glow-orb:nth-child(3) {
+  width: 250px; height: 250px; background: var(--d-cyan);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  animation-delay: -6s; opacity: 0.05;
+}
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, -30px) scale(1.15); }
+}
+
+/* Enhanced glass with gradient border */
+.glass-premium {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid transparent;
+  border-image: linear-gradient(135deg, rgba(0,189,255,0.4), rgba(0,61,165,0.2)) 1;
+  border-radius: 18px;
+  padding: 1em 1.2em;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+/* Slide number enhancement */
+.reveal .slide-number {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0,189,255,0.2);
+}
 @keyframes pulseGlow {
   0%, 100% { box-shadow: 0 0 0 0 rgba(0,189,255,0.5); }
   50% { box-shadow: 0 0 0 18px rgba(0,189,255,0); }
 }
 .pulse { animation: pulseGlow 2s infinite; }
+
+/* Brand groups */
+.brand-groups { display: flex; flex-direction: column; gap: 0.6em; margin-top: 0.6em; }
+.brand-group-label { font-size: 0.5em; color: var(--d-grey); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.2em; font-weight: 600; }
+.brand-group-row { display: flex; flex-direction: column; }
+.brand-group-row .brand-strip { justify-content: flex-start; }
+
+/* Emphasized text callout */
+.emphasis-text { color: var(--d-cyan); font-weight: 700; font-size: 0.8em !important; }
+
+/* Subdued card (non-selected strategy) */
+.subdued { opacity: 0.35; filter: grayscale(0.6); }
+.subdued h3 { color: var(--d-grey) !important; }
+
+/* Promo tool SVG icons */
+.promo-icon-wrap { width: 100%; text-align: center; margin-bottom: 0.6em; }
+.promo-icon { display: inline-block; width: 52px; height: 52px; }
+.promo-icon svg { width: 100%; height: 100%; display: block; }
+
+/* Problem layout variants */
+.problem-stack { grid-template-columns: 1fr !important; }
+.problem-stack .problem-card { min-height: 30vh !important; }
+.problem-swap { direction: rtl; }
+.problem-swap > * { direction: ltr; }
+
+/* Bar chart label */
+.chart-label { font-size: 0.55em; color: var(--d-grey); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4em; }
